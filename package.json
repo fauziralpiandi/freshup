@@ -1,0 +1,76 @@
+{
+  "name": "freshup",
+  "version": "0.1.0",
+  "description": "Keep your deps fresh(up) to date",
+  "keywords": [
+    "cli",
+    "dependencies",
+    "update",
+    "npm",
+    "maintenance"
+  ],
+  "license": "MIT",
+  "author": "Fauzira Alpiandi <fauziralpiandi.dev@gmail.com>",
+  "main": "dist/index.js",
+  "bin": {
+    "freshup": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs --clean --minify",
+    "format": "prettier --write .",
+    "lint": "eslint --fix .",
+    "test": "vitest run"
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "singleQuote": true
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "package-lock.json"
+          ]
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  },
+  "dependencies": {
+    "nanospinner": "^1.2.2",
+    "picocolors": "^1.1.1",
+    "prompts": "^2.4.2",
+    "semver": "^7.7.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "^25.0.3",
+    "@types/prompts": "^2.4.9",
+    "@types/semver": "^7.7.1",
+    "@vitest/coverage-v8": "^4.0.16",
+    "eslint": "^9.39.2",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.7.4",
+    "semantic-release": "^25.0.2",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.50.1",
+    "vitest": "^4.0.16"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
