@@ -52,6 +52,8 @@ describe('fetchOutdatedPackages', () => {
       return {} as any;
     });
 
+    await fetchOutdatedPackages(pkg);
+
     // should verify valid-pkg was checked, others were skipped logic is inside the function
     // but since we mock exec, if it calls exec for invalid ones, we'd see it if we spy.
     // the implementation filters BEFORE calling exec.
@@ -74,7 +76,7 @@ describe('fetchOutdatedPackages', () => {
     };
     const execMock = vi.mocked(child_process.exec);
 
-    execMock.mockImplementation((cb: any) => {
+    execMock.mockImplementation((_, cb: any) => {
       cb(null, { stdout: JSON.stringify({ version: '2.0.0' }) });
       return {} as any;
     });
@@ -94,7 +96,7 @@ describe('fetchOutdatedPackages', () => {
     };
     const execMock = vi.mocked(child_process.exec);
 
-    execMock.mockImplementation((cb: any) => {
+    execMock.mockImplementation((_, cb: any) => {
       cb(null, { stdout: JSON.stringify({ version: '2.0.0' }) });
       return {} as any;
     });
@@ -112,7 +114,7 @@ describe('fetchOutdatedPackages', () => {
     };
     const execMock = vi.mocked(child_process.exec);
 
-    execMock.mockImplementation((cb: any) => {
+    execMock.mockImplementation((_, cb: any) => {
       cb(new Error('Network error'), { stdout: '' });
       return {} as any;
     });
@@ -130,7 +132,7 @@ describe('fetchOutdatedPackages', () => {
     };
     const execMock = vi.mocked(child_process.exec);
 
-    execMock.mockImplementation((cb: any) => {
+    execMock.mockImplementation((_, cb: any) => {
       // npm view output can be an array of versions if requested poorly,
       // or an object with 'versions' array.
       // the code expects `data.version` OR `data[data.length - 1]` (if string array)

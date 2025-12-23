@@ -1,7 +1,7 @@
 {
-  "name": "freshup",
+  "name": "@fauziralpiandi/freshup",
   "version": "0.1.0",
-  "description": "Keep your deps fresh(up) to date",
+  "description": "Keep our deps fresh(up) to date",
   "keywords": [
     "cli",
     "dependencies",

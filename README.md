@@ -1,74 +1,43 @@
 # 🌱 freshup
 
-> Keep your deps fresh(up) to date
+> Keep our deps fresh(up) to date
 
-**freshup** is a lightweight utility to keep your project current without the clutter. It provides a granular, interactive overview of outdated packages, allowing you to choose your update strategy—from safe patches to latest releases—in seconds:
+Updating deps manually is a vibe killer. I built **freshup** to fix that—check outdated packages, pick your strategy (patch/minor/major), and get back to shipping. No more version-checking mental gymnastics.
 
-- ⚡ **Instant**: No installation needed. Run and go.
-- 📦 **Universal**: Works with `npm`, `pnpm`, `yarn`, and `bun`.
-- ⌨️ **Interactive**: Toggle updates directly in your terminal.
-- 🤖 **Smart**: Intelligent version and prefix resolution.
-- 🛡️ **Safe**: Preview before committing.
+It works for me, and if you use **npm**, **pnpm**, **yarn**, or **bun**, it might work for you too.
 
-## Quick Start 🚀
+## Why use it?
 
-Run this in your project root to see what's outdated:
+- **It's Interactive:** Instead of blindly updating everything, I can pick and choose.
+- **It's Granular:** Sometimes I only want bug fixes (`patch`), sometimes I'm ready for new features (`minor`).
+- **It's Safe-ish:** It has a `--dry-run` mode so I can see what happens before committing.
 
-```bash
-npx freshup
-```
+## Usage
 
-### Preview
-
-```sh
-🌱 Freshup v0.1.0
-
-Checking registry... Checked!
-
-Update (latest)
-  dependencies
-❯ ◉ react          17.0.0  →  18.3.1
-  ◉ next           14.0.0  →  15.1.0
-
-  devDependencies
-  ◉ typescript     5.0.0   →  5.7.2
-
-- Space to toggle, Enter to confirm
-```
-
----
-
-## Update Strategies 🎯
-
-Choose how aggressive you want to be:
+You don't need to install it. Just run it in your project root:
 
 ```bash
-npx freshup [mode]
+npx @fauziralpiandi/freshup
 ```
 
-- **`latest`** (Default): Move to the absolute latest versions.
-- **`major`**: Allow breaking changes (v1 → v2).
-- **`minor`**: New features, no breaks (v1.1 → v1.2).
-- **`patch`**: Bug fixes only (v1.1.0 → v1.1.1).
+### Modes
 
-## Advanced Flags 🛠️
+By default, it checks for the **latest** versions. But you can be specific about your strategy:
 
-| Command                 | Description                                     |
-| :---------------------- | :---------------------------------------------- |
-| `npx freshup --dry-run` | Preview changes without writing to file.        |
-| `npx freshup --write`   | Apply updates immediately (skip prompts).       |
-| `npx freshup --install` | Run install command automatically after update. |
+```bash
+npx @fauziralpiandi/freshup patch  # Just bug fixes
+npx @fauziralpiandi/freshup minor  # New features
+npx @fauziralpiandi/freshup major  # I like living dangerously
+```
 
----
+### Options
 
-<details>
-<summary>Requirements & Installation</summary>
-
-- Requires **Node.js >= 18.0.0**
-- Works with **npm, yarn, pnpm, or bun**
-- Global install (optional): `npm install -g freshup`
-</details>
+| Flag            | Description                                                     |
+| :-------------- | :-------------------------------------------------------------- |
+| `-d, --dry-run` | See what would change without actually touching `package.json`. |
+| `-w, --write`   | Skip the selection and update everything immediately.           |
+| `-i, --install` | Run `npm install` (or equivalent) right after updating.         |
 
 ## License
 
-[MIT License](LICENSE) © 2025 Fauzira Alpiandi
+[MIT](LICENSE) © 2025 Fauzira Alpiandi
