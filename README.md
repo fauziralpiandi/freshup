@@ -1,8 +1,8 @@
-# 🌱 Freshup
+# 🌱 freshup
 
-> A personal tool to keep dependencies fresh, minus the headache.
+> Keep our deps fresh(up) to date
 
-I built **Freshup** because I found the process of updating dependencies tedious. I wanted a quick way to see what's outdated, choose exactly what to update (patch, minor, or major), and get on with my work—without manually checking versions or editing `package.json`.
+Updating deps manually is a vibe killer. I built **freshup** to fix that—check outdated packages, pick your strategy (patch/minor/major), and get back to shipping. No more version-checking mental gymnastics.
 
 It works for me, and if you use **npm**, **pnpm**, **yarn**, or **bun**, it might work for you too.
 
