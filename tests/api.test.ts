@@ -76,7 +76,7 @@ describe('fetchOutdatedPackages', () => {
     };
     const execMock = vi.mocked(child_process.exec);
 
-    execMock.mockImplementation((_cmd, cb: any) => {
+    execMock.mockImplementation((_, cb: any) => {
       cb(null, { stdout: JSON.stringify({ version: '2.0.0' }) });
       return {} as any;
     });
