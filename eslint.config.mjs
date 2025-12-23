@@ -29,16 +29,6 @@ export default defineConfig([
     },
   },
   {
-    languageOptions: {
-      ecmaVersion: 2022,
-      sourceType: 'module',
-      parserOptions: {
-        project: './tsconfig.json',
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-  },
-  {
     files: ['*.config.{mjs,ts}'],
     ...tseslint.configs.disableTypeChecked,
   },
